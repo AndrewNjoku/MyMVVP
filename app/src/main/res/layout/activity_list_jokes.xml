@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+
+        <variable name="name" type="com.example.andriatae.retrofitactivity.POJO.Joke"/>
+
+        <variable name="callback" type="com.example.andriatae.retrofitactivity.Activities.ActionCallback"/>
+
+        <variable name="View" type="com.example.andriatae.retrofitactivity.ViewModel.View"/>
+
+
+    </data>
+
+<android.support.constraint.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.example.andriatae.retrofitactivity.Activities.CustomisedJoke">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="299dp"
+        android:layout_height="348dp"
+        android:layout_marginBottom="95dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="43dp"
+        android:background="@color/justWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center"
+            android:background="@color/justWhite2"
+            android:elevation="50dp"
+            android:ems="10"
+            android:hint="@{name.value.nameHint}"
+            android:text="@{(v) -> View.getName(v)}"
+            android:inputType="none|textPersonName" />
+
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+        android:onClick="@{(v) -> callback.onClick(v)}"
+            android:text="Get" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="279dp"
+        android:layout_height="87dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
+        android:text="Random Joke"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="324dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@{name.value.name}"
+        android:textColor="@color/justWhite"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+</layout>
